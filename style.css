@@ -1,0 +1,287 @@
+@charset "UTF-8";
+
+/* ===================================================
+   기본 초기화 및 전체 레이아웃
+   =================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* 폰트: '맑은 고딕', sans-serif */
+  font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+  /* 배경색: 따뜻한 베이지 (#faf6f0) */
+  background-color: #faf6f0;
+  color: #333333;
+  line-height: 1.5;
+  padding: 30px 16px;
+  min-height: 100vh;
+}
+
+/* 최대 너비 520px, 가운데 정렬 */
+header,
+main {
+  max-width: 520px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ===================================================
+   [페이지 상단] 헤더 영역
+   =================================================== */
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* 카페 로고 ☕ 이모지 크게 */
+header .logo {
+  font-size: 52px;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+/* 카페 이름 */
+header h1 {
+  font-size: 28px;
+  color: #6b4226;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* 부제 */
+header p {
+  font-size: 15px;
+  color: #8c6d58;
+}
+
+/* ===================================================
+   [주문서 폼] 메인 카드 컨테이너
+   - 둥근 모서리, 부드러운 그림자
+   =================================================== */
+main {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 24px rgba(107, 66, 38, 0.08);
+}
+
+/* 입력 그룹 공통 */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* 입력 라벨 및 레전드 스타일 */
+.form-group > label,
+fieldset.form-group > legend {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a382d;
+}
+
+fieldset.form-group {
+  border: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+/* ===================================================
+   [입력칸 스타일]
+   - 너비 100%, 패딩 10px, 둥근 모서리 8px
+   - 포커스 시 테두리 갈색(#6b4226) + 연한 갈색 그림자
+   =================================================== */
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #333333;
+  background-color: #ffffff;
+  border: 1px solid #d9cdbf;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 포커스 효과 */
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #6b4226;
+  box-shadow: 0 0 0 3px rgba(107, 66, 38, 0.2);
+}
+
+/* 요청사항 텍스트 영역 */
+textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+
+/* ===================================================
+   [라디오 / 체크박스]
+   - 가로로 나란히 배치, gap 간격
+   =================================================== */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 4px 0;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #6b4226;
+  margin: 0;
+}
+
+.radio-group label,
+.checkbox-group label {
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+  cursor: pointer;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ===================================================
+   [예상 금액 표시 영역]
+   - 큰 글씨(24px), 갈색, 굵게, 가운데 정렬
+   =================================================== */
+#estimated-price-area,
+.price-area {
+  font-size: 24px;
+  color: #6b4226;
+  font-weight: bold;
+  text-align: center;
+  padding: 16px;
+  background-color: #faf6f0;
+  border-radius: 8px;
+  border: 1px dashed #d9cdbf;
+  margin-bottom: 20px;
+}
+
+/* ===================================================
+   [버튼 스타일]
+   =================================================== */
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.button-group button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* 주문하기 버튼: 갈색 배경(#6b4226), 흰색 글씨, hover 시 약간 밝게 */
+#submit-btn {
+  flex: 2;
+  background-color: #6b4226;
+  color: #ffffff;
+  border: 1px solid #6b4226;
+}
+
+#submit-btn:hover {
+  background-color: #855330;
+  border-color: #855330;
+}
+
+/* 다시 작성 버튼: 흰 배경 + 갈색 테두리 */
+#reset-btn {
+  flex: 1;
+  background-color: #ffffff;
+  color: #6b4226;
+  border: 1px solid #6b4226;
+}
+
+#reset-btn:hover {
+  background-color: #faf6f0;
+}
+
+/* ===================================================
+   [주문 확인 메시지]
+   - 연두색 배경, 초록 글씨, 둥근 모서리
+   =================================================== */
+#order-confirmation,
+.order-confirmation {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ===================================================
+   [숨김 클래스 / 속성 처리]
+   - hidden 클래스가 붙거나 hidden 속성이 있으면 화면에서 숨김
+   =================================================== */
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/* ===================================================
+   [반응형 디자인] 휴대폰에서도 깨지지 않게 최적화
+   =================================================== */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  main {
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  header .logo {
+    font-size: 44px;
+  }
+
+  #estimated-price-area,
+  .price-area {
+    font-size: 20px;
+    padding: 14px 10px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  #submit-btn,
+  #reset-btn {
+    width: 100%;
+    flex: none;
+  }
+}
+
